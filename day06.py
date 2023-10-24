@@ -27,4 +27,4 @@ data = ld.load_data('example06.txt')
 data = ld.load_data('input06.txt')
 fishlist = split_data(data)
 print(f'{part1(fishlist)}') # 386640
-# print(f'{part2(fishlist)}') 
+print(f'{part2(fishlist, 256)}') 
