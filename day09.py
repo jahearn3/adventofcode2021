@@ -39,6 +39,11 @@ def sum_risk_levels_of_local_minima(data):
 
     return sum(low_points) + len(low_points)
 
+# def product_of_three_largest_basins(data):
+
+
 data = ld.load_data('example09.txt')
 data = ld.load_data('input09.txt') 
-print(f'{sum_risk_levels_of_local_minima(data)}') # 530
+# print(f'{sum_risk_levels_of_local_minima(data)}') # 530
+# print(f'{product_of_three_largest_basins(data)}')
+
