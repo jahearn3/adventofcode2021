@@ -1,6 +1,7 @@
 # Day 13: Transparent Origami
 
 import load_data as ld
+import numpy as np 
 
 data = ld.load_data('example13.txt')
 data = ld.load_data('input13.txt') 
@@ -19,16 +20,12 @@ for line in data:
     else:
         transparency.append(line)
 
-# print(transparency)
-# print('...')
-# print(instructions)
 print(len(transparency))
 prev_transparency = transparency
 for fold in instructions:
     next_transparency = []
     orientation = fold[0]
     foldline = int(fold[1])
-    # print(orientation, foldline)
     if(orientation == 'y'): # fold up
         # all x values remain the same
         for dot in prev_transparency:
@@ -53,3 +50,30 @@ for fold in instructions:
 # Part 1 answer was 695
 
 # Part 2
+xs = []
+ys = []
+for dot in prev_transparency:
+    x, y = dot.split(',')
+    x, y = int(x), int(y)
+    xs.append(x)
+    ys.append(y)
+
+max_x = np.amax(xs)
+max_y = np.amax(ys)
+
+grid = np.zeros((max_y + 1, max_x + 1))
+for i in range(len(xs)):
+    x = xs[i]
+    y = ys[i]
+    grid[y][x] = 1
+
+for row in grid:
+    line = ''
+    for char in row:
+        if(char == 0):
+            line += '.'
+        else:
+            line += '#'
+    print(line)
+
+# Part 2 answer was GJZGLUPJ
